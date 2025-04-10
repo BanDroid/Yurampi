@@ -11,5 +11,9 @@ readme = "README.md"
 license = {text = "MIT"}
 
 
+[tool.setuptools]
+py-modules = []
+
+
 [tool.pdm]
 distribution = false
