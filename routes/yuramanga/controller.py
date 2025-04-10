@@ -17,7 +17,7 @@ async def get_mangas(
                 totalPages=0,
                 items=[],
             )
-        parsed_items = parse_mangas_from_html_str(await res.text())
+        parsed_items = await parse_mangas_from_html_str(await res.text())
         if not parsed_items:
             return MangasResponse(
                 ok=False,
@@ -40,5 +40,5 @@ async def get_manga(
     async with session.get(f"/series/{slug}") as res:
         if not res.ok or res.status != 200:
             raise HTTPException(status_code=res.status, detail=res.reason)
-        parsed_item = parse_manga_from_html_str(await res.text())
+        parsed_item = await parse_manga_from_html_str(await res.text())
         return parsed_item

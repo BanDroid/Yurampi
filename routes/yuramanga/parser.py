@@ -3,7 +3,7 @@ from config.bs4 import create_soup
 from .schemas import Chapter, Manga
 
 
-def parse_mangas_from_html_str(html: str) -> list[Manga]:
+async def parse_mangas_from_html_str(html: str) -> list[Manga]:
     soup = create_soup(html)
     items: list[Manga] = []
     if not (
@@ -50,7 +50,7 @@ def parse_mangas_from_html_str(html: str) -> list[Manga]:
     return items
 
 
-def parse_manga_from_html_str(html: str) -> Manga:
+async def parse_manga_from_html_str(html: str) -> Manga:
     soup = create_soup(html)
     # with open("series.html", "w", encoding="utf-8") as html_file:
     #     if flexbox := soup.select_one("body > main > div > div > div.container > div"):
